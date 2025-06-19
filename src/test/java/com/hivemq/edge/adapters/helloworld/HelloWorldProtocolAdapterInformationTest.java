@@ -17,6 +17,8 @@ package com.hivemq.edge.adapters.helloworld;
 
 import org.junit.jupiter.api.Test;
 
+import com.hivemq.edge.adapters.simplecounter.HelloWorldProtocolAdapterInformation;
+
 import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

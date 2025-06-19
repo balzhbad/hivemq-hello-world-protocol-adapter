@@ -13,7 +13,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.hivemq.edge.adapters.helloworld.config;
+package com.hivemq.edge.adapters.simplecounter.config;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,7 +30,7 @@ import java.util.List;
 @JsonPropertyOrder({
         "url",
         "destination"})
-public class HelloWorldAdapterConfig implements ProtocolSpecificAdapterConfig {
+public class SimpleCounterAdapterConfig implements ProtocolSpecificAdapterConfig {
 
     private static final @NotNull String ID_REGEX = "^([a-zA-Z_0-9-_])*$";
 
@@ -58,11 +58,41 @@ public class HelloWorldAdapterConfig implements ProtocolSpecificAdapterConfig {
             numberMin = 3,
             defaultValue = "10")
     private int maxPollingErrorsBeforeRemoval = 10;
+    
+    @JsonProperty("initialCounterValue")
+    @ModuleConfigField(
+            title = "Initial Counter Value",
+            description = "The value from which the counter should start.",
+            defaultValue = "0",
+            numberMin = 0
+    )
+    private int initialCounterValue = 0; // Default to 0 if not specified
+
+    @JsonProperty("mqttTopic")
+    @ModuleConfigField(
+            title = "MQTT_Topic",
+            description = "The MQTT topic to which the counter value will be published.",
+            format = ModuleConfigField.FieldType.MQTT_TOPIC,
+            required = true // Make this a required field
+    )
+    private @NotNull String mqttTopic = "simple-counter/value"; // Default if not specified, but 'required' makes user provide it.
+
+  
 
 
-    public HelloWorldAdapterConfig() {
+
+    public SimpleCounterAdapterConfig() {
+    }
+    
+    // --- GETTERS FOR NEW FIELDS ---
+    public int getInitialCounterValue() {
+        return initialCounterValue;
     }
 
+    public @NotNull String getMqttTopic() {
+        return mqttTopic;
+    }
+    
     public int getPollingIntervalMillis() {
         return pollingIntervalMillis;
     }
@@ -70,4 +100,6 @@ public class HelloWorldAdapterConfig implements ProtocolSpecificAdapterConfig {
     public int getMaxPollingErrorsBeforeRemoval() {
         return maxPollingErrorsBeforeRemoval;
     }
+    
+   
 }

@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hivemq.edge.adapters.helloworld.config;
+package com.hivemq.edge.adapters.simplecounter.config;
 
 import com.hivemq.adapter.sdk.api.tag.TagDefinition;
 
-public class HelloWorldAdapterTagDefinition implements TagDefinition {
+public class SimpleCounterAdapterTagDefinition implements TagDefinition {
     // currently empty
 }

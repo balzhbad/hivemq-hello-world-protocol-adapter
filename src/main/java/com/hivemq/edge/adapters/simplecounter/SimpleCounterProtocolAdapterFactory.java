@@ -13,26 +13,27 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package com.hivemq.edge.adapters.helloworld;
+package com.hivemq.edge.adapters.simplecounter;
 
 import com.hivemq.adapter.sdk.api.ProtocolAdapter;
 import com.hivemq.adapter.sdk.api.ProtocolAdapterInformation;
 import com.hivemq.adapter.sdk.api.factories.ProtocolAdapterFactory;
 import com.hivemq.adapter.sdk.api.model.ProtocolAdapterInput;
-import com.hivemq.edge.adapters.helloworld.config.HelloWorldAdapterConfig;
+import com.hivemq.edge.adapters.simplecounter.config.SimpleCounterAdapterConfig;
+
 import org.jetbrains.annotations.NotNull;
 
-public class HelloWorldProtocolAdapterFactory implements ProtocolAdapterFactory<HelloWorldAdapterConfig> {
+public class SimpleCounterProtocolAdapterFactory implements ProtocolAdapterFactory<SimpleCounterAdapterConfig> {
 
     @Override
     public @NotNull ProtocolAdapterInformation getInformation() {
-        return HelloWorldProtocolAdapterInformation.INSTANCE;
+        return SimpleCounterAdapterInformation.INSTANCE;
     }
 
     @Override
     public @NotNull ProtocolAdapter createAdapter(
             final @NotNull ProtocolAdapterInformation adapterInformation,
-            final @NotNull ProtocolAdapterInput<HelloWorldAdapterConfig> input) {
-        return new HelloWorldPollingProtocolAdapter(adapterInformation, input);
+            final @NotNull ProtocolAdapterInput<SimpleCounterAdapterConfig> input) {
+        return new SimpleCounterPollingProtocolAdapter(adapterInformation, input);
     }
 }

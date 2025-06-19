@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hivemq.edge.adapters.helloworld.config;
+package com.hivemq.edge.adapters.simplecounter.config;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hivemq.adapter.sdk.api.annotations.ModuleConfigField;
@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class HelloWorldAdapterTag implements Tag {
+public class SimpleCounterAdapterTag implements Tag {
 
     @JsonProperty(value = "name", required = true)
     @ModuleConfigField(title = "name",
@@ -40,19 +40,19 @@ public class HelloWorldAdapterTag implements Tag {
     @JsonProperty(value = "definition", required = true)
     @ModuleConfigField(title = "definition",
             description = "The actual definition of the tag on the device")
-    private final @NotNull HelloWorldAdapterTagDefinition definition;
+    private final @NotNull SimpleCounterAdapterTagDefinition definition;
 
-    public HelloWorldAdapterTag(
+    public SimpleCounterAdapterTag(
             @JsonProperty(value = "name", required = true) final @NotNull String name,
             @JsonProperty(value = "description") final @Nullable String description,
-            @JsonProperty(value = "definition", required = true) final @NotNull HelloWorldAdapterTagDefinition definition) {
+            @JsonProperty(value = "definition", required = true) final @NotNull SimpleCounterAdapterTagDefinition definition) {
         this.name = name;
         this.description = Objects.requireNonNullElse(description, "no description present.");
         this.definition = definition;
     }
 
     @Override
-    public @NotNull HelloWorldAdapterTagDefinition getDefinition() {
+    public @NotNull SimpleCounterAdapterTagDefinition getDefinition() {
         return definition;
     }
 
@@ -84,10 +84,10 @@ public class HelloWorldAdapterTag implements Tag {
     public boolean equals(final @Nullable Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final HelloWorldAdapterTag helloWorldAdapterTag = (HelloWorldAdapterTag) o;
-        return Objects.equals(name, helloWorldAdapterTag.name) &&
-                Objects.equals(description, helloWorldAdapterTag.description) &&
-                Objects.equals(definition, helloWorldAdapterTag.definition);
+        final SimpleCounterAdapterTag SimpleCounterAdapterTag = (SimpleCounterAdapterTag) o;
+        return Objects.equals(name, SimpleCounterAdapterTag.name) &&
+                Objects.equals(description, SimpleCounterAdapterTag.description) &&
+                Objects.equals(definition, SimpleCounterAdapterTag.definition);
     }
 
     @Override

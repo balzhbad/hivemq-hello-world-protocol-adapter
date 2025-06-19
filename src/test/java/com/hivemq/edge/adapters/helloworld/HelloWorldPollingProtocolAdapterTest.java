@@ -18,7 +18,10 @@ package com.hivemq.edge.adapters.helloworld;
 
 import com.hivemq.adapter.sdk.api.model.ProtocolAdapterInput;
 import com.hivemq.adapter.sdk.api.polling.batch.BatchPollingInput;
-import com.hivemq.edge.adapters.helloworld.config.HelloWorldAdapterConfig;
+import com.hivemq.edge.adapters.simplecounter.SimpleCounterPollingProtocolAdapter;
+import com.hivemq.edge.adapters.simplecounter.HelloWorldProtocolAdapterInformation;
+import com.hivemq.edge.adapters.simplecounter.config.HelloWorldAdapterConfig;
+
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -46,8 +49,8 @@ class HelloWorldPollingProtocolAdapterTest {
         final BatchPollingInput pollingInput = mock(BatchPollingInput.class);
         final TestPollingOutput pollingOutput = new TestPollingOutput();
 
-        final HelloWorldPollingProtocolAdapter adapter =
-                new HelloWorldPollingProtocolAdapter(new HelloWorldProtocolAdapterInformation(), adapterInput);
+        final SimpleCounterPollingProtocolAdapter adapter =
+                new SimpleCounterPollingProtocolAdapter(new HelloWorldProtocolAdapterInformation(), adapterInput);
 
         adapter.poll(pollingInput, pollingOutput);
 

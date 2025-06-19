@@ -4,7 +4,9 @@
       "id": "coreFields",
       "title": "Settings",
       "properties": [
-        "id"
+        "id",
+		"initialCounterValue",
+		   "mqttTopic"
       ]
     },
     {

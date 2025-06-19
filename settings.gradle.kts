@@ -1,4 +1,4 @@
-rootProject.name = "hivemq-hello-world-protocol-adapter"
+rootProject.name = "hivemq-simple-counter-protocol-adapter"
 
 pluginManagement {
     plugins {
